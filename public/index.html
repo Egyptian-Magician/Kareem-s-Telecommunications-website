@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kareem Hilaly — IT &amp; Systems, San Diego</title>
+<meta name="description" content="Independent IT consultant in San Diego. Email &amp; DNS infrastructure, automation, systems, and security for small businesses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ECEEEA;
+    --surface:#F6F7F4;
+    --ink:#15191A;
+    --muted:#59635F;
+    --line:rgba(21,25,26,0.12);
+    --accent:#0E6E5E;
+    --accent-ink:#0A4F44;
+    --display:'Bricolage Grotesque',system-ui,sans-serif;
+    --body:'Inter',system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px}
+
+  /* status bar */
+  .status{
+    border-bottom:1px solid var(--line);
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.04em;
+    color:var(--muted);
+  }
+  .status .wrap{display:flex;align-items:center;gap:10px;height:42px;flex-wrap:wrap}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block}
+  @media (prefers-reduced-motion:no-preference){
+    .dot{animation:pulse 2s ease-in-out infinite}
+  }
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .status .sep{color:var(--line)}
+
+  /* hero */
+  .hero{padding:96px 0 72px}
+  .eyebrow{
+    font-family:var(--mono);font-size:13px;letter-spacing:0.12em;
+    text-transform:uppercase;color:var(--accent-ink);margin-bottom:24px;
+  }
+  h1{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(48px,9vw,92px);
+    line-height:0.98;
+    letter-spacing:-0.02em;
+    margin-bottom:28px;
+  }
+  .caret{color:var(--accent)}
+  @media (prefers-reduced-motion:no-preference){
+    .caret{animation:blink 1.1s step-end infinite}
+  }
+  @keyframes blink{50%{opacity:0}}
+  .lede{
+    font-size:clamp(18px,2.4vw,22px);
+    max-width:34em;
+    color:var(--ink);
+    margin-bottom:40px;
+  }
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    font-family:var(--mono);font-size:14px;letter-spacing:0.02em;
+    padding:13px 22px;border-radius:8px;border:1px solid var(--ink);
+    transition:transform .15s ease,background .15s ease,color .15s ease;
+  }
+  .btn-primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .btn-primary:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-2px)}
+  .btn-ghost:hover{background:var(--surface);transform:translateY(-2px)}
+  .btn:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+  /* section frame */
+  section.block{padding:64px 0;border-top:1px solid var(--line)}
+  .sec-eyebrow{
+    font-family:var(--mono);font-size:12px;letter-spacing:0.1em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:28px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .sec-eyebrow .num{color:var(--accent)}
+  .about-text{font-size:clamp(19px,2.6vw,26px);max-width:24em;line-height:1.45;font-family:var(--display);font-weight:500}
+
+  /* focus grid */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .cell{background:var(--surface);padding:28px 26px}
+  .cell h3{font-family:var(--display);font-weight:700;font-size:20px;margin-bottom:8px}
+  .cell p{color:var(--muted);font-size:15px}
+  .cell .tag{font-family:var(--mono);font-size:11px;color:var(--accent-ink);letter-spacing:0.08em;display:block;margin-bottom:14px}
+  @media (max-width:640px){.grid{grid-template-columns:1fr}}
+
+  /* contact */
+  .contact .wrap{display:flex;flex-direction:column;gap:24px}
+  .contact h2{font-family:var(--display);font-weight:700;font-size:clamp(32px,6vw,56px);line-height:1;letter-spacing:-0.02em}
+  .mail{font-family:var(--mono);font-size:clamp(16px,3vw,22px);color:var(--accent-ink);border-bottom:1px solid var(--accent);padding-bottom:3px;width:fit-content}
+  .mail:hover{color:var(--accent)}
+
+  footer{border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:0.03em}
+  footer .wrap{display:flex;justify-content:space-between;gap:12px;height:64px;align-items:center;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+  <!-- ===== STATUS BAR ===== -->
+  <div class="status">
+    <div class="wrap">
+      <span class="dot"></span>
+      <span>KAREEM HILALY</span>
+      <span class="sep">/</span>
+      <span>SAN DIEGO, CA</span>
+      <span class="sep">/</span>
+      <span>STATUS: AVAILABLE FOR WORK</span>
+    </div>
+  </div>
+
+  <!-- ===== HERO  (EDIT your name + one-line pitch here) ===== -->
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">IT &amp; Systems consultant</p>
+      <h1>Kareem<br>Hilaly<span class="caret">_</span></h1>
+      <p class="lede">I help small businesses run on solid systems — email deliverability, DNS, automation, and practical security. Independent, hands-on, based in San Diego.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#contact">Get in touch</a>
+        <a class="btn btn-ghost" href="#work">What I do</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== ABOUT  (EDIT this paragraph) ===== -->
+  <section class="block">
+    <div class="wrap">
+      <p class="sec-eyebrow"><span class="num">01</span> About</p>
+      <p class="about-text">A decade of fixing the unglamorous things businesses depend on — the email that won't deliver, the network that keeps dropping, the manual work that should've been automated years ago.</p>
+    </div>
+  </section>
+
+  <!-- ===== WHAT I DO  (EDIT these four cards) ===== -->
+  <section class="block" id="work">
+    <div class="wrap">
+      <p class="sec-eyebrow"><span class="num">02</span> What I do</p>
+      <div class="grid">
+        <div class="cell">
+          <span class="tag">DELIVERABILITY</span>
+          <h3>Email &amp; DNS</h3>
+          <p>SPF, DKIM, and DMARC done right, so your mail lands in the inbox instead of spam.</p>
+        </div>
+        <div class="cell">
+          <span class="tag">EFFICIENCY</span>
+          <h3>Automation</h3>
+          <p>Workflows and tooling that take the repetitive busywork off your plate for good.</p>
+        </div>
+        <div class="cell">
+          <span class="tag">RELIABILITY</span>
+          <h3>IT &amp; systems</h3>
+          <p>Setup, migrations, and steady support that keeps lean teams up and running.</p>
+        </div>
+        <div class="cell">
+          <span class="tag">SECURITY</span>
+          <h3>Hardening &amp; monitoring</h3>
+          <p>Practical defenses grounded in real-world threats, sized to your business.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT  (EDIT your email below) ===== -->
+  <section class="block contact" id="contact">
+    <div class="wrap">
+      <p class="sec-eyebrow"><span class="num">03</span> Contact</p>
+      <h2>Let's talk.</h2>
+      <a class="mail" href="mailto:kareemhilaly@gmail.com">kareemhilaly@gmail.com</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 KAREEM HILALY</span>
+      <span>KAR-TEL.APP</span>
+    </div>
+  </footer>
+
+</body>
+</html>
