@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kar-tel.app/sitemap.xml

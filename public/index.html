@@ -3,195 +3,337 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kareem Hilaly — IT &amp; Systems, San Diego</title>
-<meta name="description" content="Independent IT consultant in San Diego. Email &amp; DNS infrastructure, automation, systems, and security for small businesses.">
+
+<!-- ===== SEO: EDIT title + description as services change ===== -->
+<title>Kar-Tel — Phone &amp; Laptop Repair + IT Systems | San Diego</title>
+<meta name="description" content="Independent tech in San Diego. iPhone back glass and screen repair, laptop repair, business IT, email deliverability, and Angelina — an AI receptionist for small businesses.">
+<link rel="canonical" href="https://kar-tel.app/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kar-Tel — One tech. Direct line.">
+<meta property="og:description" content="Phone &amp; laptop repair, business IT, and AI phone systems. San Diego.">
+<meta property="og:url" content="https://kar-tel.app/">
+<meta property="og:site_name" content="Kar-Tel">
+<meta name="theme-color" content="#10151D">
+
+<!-- ===== SEO: structured data so Google reads this as a local business ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://kar-tel.app/#business",
+  "name": "Kar-Tel",
+  "alternateName": "Pyramid Repairs",
+  "url": "https://kar-tel.app/",
+  "email": "admin@kar-tel.app",
+  "telephone": "+1-858-389-8698",
+  "founder": { "@type": "Person", "name": "Kareem \"Kimo\" Hilaly" },
+  "areaServed": { "@type": "City", "name": "San Diego" },
+  "address": { "@type": "PostalAddress", "addressLocality": "San Diego", "addressRegion": "CA", "addressCountry": "US" },
+  "description": "Independent phone and laptop repair, business IT support, email deliverability consulting, and AI phone systems in San Diego.",
+  "knowsAbout": ["iPhone repair", "back glass repair", "laptop repair", "email deliverability", "DNS", "IT support", "AI receptionist"]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
   :root{
-    --paper:#ECEEEA;
-    --surface:#F6F7F4;
-    --ink:#15191A;
-    --muted:#59635F;
-    --line:rgba(21,25,26,0.12);
-    --accent:#0E6E5E;
-    --accent-ink:#0A4F44;
-    --display:'Bricolage Grotesque',system-ui,sans-serif;
-    --body:'Inter',system-ui,sans-serif;
-    --mono:'JetBrains Mono',ui-monospace,monospace;
+    --night:#10151D;      /* slate night — page bg */
+    --panel:#171E29;      /* raised panel */
+    --line:#2A3442;       /* hairline */
+    --copper:#D98E4A;     /* copper wire — accent */
+    --copper-hot:#F2A960; /* hover state */
+    --signal:#7BC4A4;     /* status green */
+    --paper:#EDE9E1;      /* warm off-white text */
+    --dim:#8B95A3;        /* muted text */
+    --display:'Unbounded',sans-serif;
+    --body:'Archivo',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{
-    font-family:var(--body);
-    background:var(--paper);
-    color:var(--ink);
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
+  body{font-family:var(--body);background:var(--night);color:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:920px;margin:0 auto;padding:0 28px}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  ::selection{background:var(--copper);color:var(--night)}
+  :focus-visible{outline:2px solid var(--copper);outline-offset:3px}
 
-  /* status bar */
-  .status{
-    border-bottom:1px solid var(--line);
-    font-family:var(--mono);
-    font-size:12px;
-    letter-spacing:0.04em;
-    color:var(--muted);
-  }
-  .status .wrap{display:flex;align-items:center;gap:10px;height:42px;flex-wrap:wrap}
-  .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block}
-  @media (prefers-reduced-motion:no-preference){
-    .dot{animation:pulse 2s ease-in-out infinite}
-  }
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-  .status .sep{color:var(--line)}
+  /* ===== carrier status bar ===== */
+  .statusbar{border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--dim);letter-spacing:.04em}
+  .statusbar .wrap{display:flex;align-items:center;gap:12px;height:44px;overflow-x:auto;white-space:nowrap}
+  .sig{display:inline-flex;gap:2px;align-items:flex-end}
+  .sig span{width:3px;background:var(--signal);border-radius:1px}
+  .sig span:nth-child(1){height:4px}.sig span:nth-child(2){height:7px}
+  .sig span:nth-child(3){height:10px}.sig span:nth-child(4){height:13px}
+  .statusbar .sep{color:var(--line)}
+  .statusbar .live{color:var(--signal)}
 
-  /* hero */
-  .hero{padding:96px 0 72px}
-  .eyebrow{
-    font-family:var(--mono);font-size:13px;letter-spacing:0.12em;
-    text-transform:uppercase;color:var(--accent-ink);margin-bottom:24px;
-  }
-  h1{
-    font-family:var(--display);
-    font-weight:700;
-    font-size:clamp(48px,9vw,92px);
-    line-height:0.98;
-    letter-spacing:-0.02em;
-    margin-bottom:28px;
-  }
-  .caret{color:var(--accent)}
-  @media (prefers-reduced-motion:no-preference){
-    .caret{animation:blink 1.1s step-end infinite}
-  }
-  @keyframes blink{50%{opacity:0}}
-  .lede{
-    font-size:clamp(18px,2.4vw,22px);
-    max-width:34em;
-    color:var(--ink);
-    margin-bottom:40px;
-  }
-  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
-  .btn{
-    font-family:var(--mono);font-size:14px;letter-spacing:0.02em;
-    padding:13px 22px;border-radius:8px;border:1px solid var(--ink);
-    transition:transform .15s ease,background .15s ease,color .15s ease;
-  }
-  .btn-primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-  .btn-primary:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-2px)}
-  .btn-ghost:hover{background:var(--surface);transform:translateY(-2px)}
-  .btn:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  /* ===== nav ===== */
+  nav{position:sticky;top:0;z-index:50;background:rgba(16,21,29,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.02em}
+  .logo .tld{color:var(--copper)}
+  .navlinks{display:flex;gap:26px;font-family:var(--mono);font-size:13px;color:var(--dim)}
+  .navlinks a:hover{color:var(--copper-hot)}
+  @media(max-width:640px){.navlinks{gap:16px;font-size:12px}}
 
-  /* section frame */
-  section.block{padding:64px 0;border-top:1px solid var(--line)}
-  .sec-eyebrow{
-    font-family:var(--mono);font-size:12px;letter-spacing:0.1em;
-    text-transform:uppercase;color:var(--muted);margin-bottom:28px;
-    display:flex;align-items:center;gap:12px;
-  }
-  .sec-eyebrow .num{color:var(--accent)}
-  .about-text{font-size:clamp(19px,2.6vw,26px);max-width:24em;line-height:1.45;font-family:var(--display);font-weight:500}
+  /* ===== hero ===== */
+  .hero{padding:92px 0 76px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:auto -10% -1px -10%;height:1px;background:linear-gradient(90deg,transparent,var(--copper),transparent);opacity:.6}
+  .kicker{font-family:var(--mono);font-size:13px;color:var(--copper);letter-spacing:.14em;text-transform:uppercase;margin-bottom:22px}
+  h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,6.4vw,64px);line-height:1.06;letter-spacing:-.01em;max-width:15em}
+  h1 em{font-style:normal;color:var(--copper)}
+  .lede{margin-top:26px;font-size:clamp(17px,2.2vw,20px);color:var(--dim);max-width:36em}
+  .lede strong{color:var(--paper);font-weight:500}
+  .cta-row{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{font-family:var(--mono);font-size:14px;padding:14px 24px;border-radius:6px;border:1px solid var(--copper);transition:all .15s ease}
+  .btn-solid{background:var(--copper);color:var(--night);font-weight:500}
+  .btn-solid:hover{background:var(--copper-hot);border-color:var(--copper-hot);transform:translateY(-2px)}
+  .btn-line{color:var(--copper)}
+  .btn-line:hover{background:rgba(217,142,74,.1);transform:translateY(-2px)}
+  .trust{margin-top:40px;display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--dim)}
+  .trust span::before{content:"✓ ";color:var(--signal)}
 
-  /* focus grid */
-  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-  .cell{background:var(--surface);padding:28px 26px}
-  .cell h3{font-family:var(--display);font-weight:700;font-size:20px;margin-bottom:8px}
-  .cell p{color:var(--muted);font-size:15px}
-  .cell .tag{font-family:var(--mono);font-size:11px;color:var(--accent-ink);letter-spacing:0.08em;display:block;margin-bottom:14px}
-  @media (max-width:640px){.grid{grid-template-columns:1fr}}
+  /* ===== section frame ===== */
+  section{padding:78px 0;border-bottom:1px solid var(--line)}
+  .line-label{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--copper);display:flex;align-items:center;gap:14px;margin-bottom:18px}
+  .line-label::after{content:"";height:1px;flex:1;background:var(--line)}
+  h2{font-family:var(--display);font-weight:700;font-size:clamp(26px,4vw,40px);line-height:1.15;margin-bottom:18px;max-width:18em}
+  h2 em{font-style:normal;color:var(--copper)}
+  .section-intro{color:var(--dim);max-width:40em;margin-bottom:44px}
 
-  /* contact */
-  .contact .wrap{display:flex;flex-direction:column;gap:24px}
-  .contact h2{font-family:var(--display);font-weight:700;font-size:clamp(32px,6vw,56px);line-height:1;letter-spacing:-0.02em}
-  .mail{font-family:var(--mono);font-size:clamp(16px,3vw,22px);color:var(--accent-ink);border-bottom:1px solid var(--accent);padding-bottom:3px;width:fit-content}
-  .mail:hover{color:var(--accent)}
+  /* ===== repair cards ===== */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:26px 24px;transition:border-color .15s ease,transform .15s ease}
+  .card:hover{border-color:var(--copper);transform:translateY(-3px)}
+  .card .tag{font-family:var(--mono);font-size:11px;color:var(--signal);letter-spacing:.1em;text-transform:uppercase}
+  .card h3{font-family:var(--body);font-weight:600;font-size:19px;margin:12px 0 8px}
+  .card p{color:var(--dim);font-size:15px}
+  .card .from{margin-top:16px;font-family:var(--mono);font-size:13px;color:var(--copper)}
 
-  footer{border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:0.03em}
-  footer .wrap{display:flex;justify-content:space-between;gap:12px;height:64px;align-items:center;flex-wrap:wrap}
+  /* ===== products ===== */
+  .product{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:34px 30px;display:flex;flex-wrap:wrap;gap:26px;align-items:center;justify-content:space-between}
+  .product + .product{margin-top:16px}
+  .product .info{max-width:34em}
+  .badge{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:4px;border:1px solid var(--copper);color:var(--copper);margin-bottom:14px}
+  .badge.soon{border-color:var(--signal);color:var(--signal)}
+  .product h3{font-family:var(--display);font-weight:500;font-size:22px;margin-bottom:8px}
+  .product p{color:var(--dim);font-size:15px}
+
+  /* ===== about ===== */
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:44px;align-items:start}
+  @media(max-width:760px){.about-grid{grid-template-columns:1fr}}
+  .about-copy{font-size:17px;color:var(--dim)}
+  .about-copy strong{color:var(--paper);font-weight:500}
+  .about-copy p+p{margin-top:16px}
+  .statboard{background:var(--panel);border:1px solid var(--line);border-radius:10px;font-family:var(--mono);font-size:13px}
+  .statboard div{display:flex;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--line)}
+  .statboard div:last-child{border-bottom:0}
+  .statboard dt{color:var(--dim)}
+  .statboard dd{color:var(--paper)}
+
+  /* ===== contact ===== */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+  @media(max-width:760px){.contact-grid{grid-template-columns:1fr}}
+  .contact h2{max-width:none}
+  .channel{display:flex;flex-direction:column;gap:6px;padding:20px 0;border-bottom:1px solid var(--line)}
+  .channel .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+  .channel a{font-family:var(--mono);font-size:17px;color:var(--copper)}
+  .channel a:hover{color:var(--copper-hot)}
+  .channel .note{font-size:13px;color:var(--dim)}
+
+  footer{font-family:var(--mono);font-size:12px;color:var(--dim);padding:34px 0}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  footer a:hover{color:var(--copper-hot)}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
 
-  <!-- ===== STATUS BAR ===== -->
-  <div class="status">
-    <div class="wrap">
-      <span class="dot"></span>
-      <span>KAREEM HILALY</span>
-      <span class="sep">/</span>
-      <span>SAN DIEGO, CA</span>
-      <span class="sep">/</span>
-      <span>STATUS: AVAILABLE FOR WORK</span>
+<!-- ===== STATUS BAR ===== -->
+<div class="statusbar">
+  <div class="wrap">
+    <span class="sig" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+    <span>KAR-TEL</span><span class="sep">/</span>
+    <span>SAN DIEGO · 32.72°N</span><span class="sep">/</span>
+    <span class="live">LINE OPEN — TAKING WORK</span>
+  </div>
+</div>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">KAR-TEL<span class="tld">.APP</span></a>
+    <div class="navlinks">
+      <a href="#repairs">Repairs</a>
+      <a href="#services">Services</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
     </div>
   </div>
+</nav>
 
-  <!-- ===== HERO  (EDIT your name + one-line pitch here) ===== -->
-  <header class="hero">
-    <div class="wrap">
-      <p class="eyebrow">IT &amp; Systems consultant</p>
-      <h1>Kareem<br>Hilaly<span class="caret">_</span></h1>
-      <p class="lede">I help small businesses run on solid systems — email deliverability, DNS, automation, and practical security. Independent, hands-on, based in San Diego.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#contact">Get in touch</a>
-        <a class="btn btn-ghost" href="#work">What I do</a>
+<!-- ===== HERO  (EDIT headline + pitch here) ===== -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="kicker">Independent tech · repairs + systems</p>
+    <h1>One tech.<br><em>Direct line.</em></h1>
+    <p class="lede">Phone and laptop repair, business IT, and AI phone systems — handled by <strong>one person you can actually reach</strong>. No ticket queue, no call center, no handoffs. San Diego based.</p>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="#contact">Get a repair quote</a>
+      <a class="btn btn-line" href="tel:+18583898698">(858) 389-8698</a>
+    </div>
+    <div class="trust">
+      <span>Same-day quotes</span>
+      <span>Board-level honest — no upsells</span>
+      <span>Field &amp; remote work</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===== REPAIRS  (EDIT cards + starting prices) ===== -->
+<section id="repairs">
+  <div class="wrap">
+    <p class="line-label">Line 01 · Repairs</p>
+    <h2>Fix it once. <em>Fix it right.</em></h2>
+    <p class="section-intro">Walk-in problems, done properly — the repairs shops overcharge for or turn away.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">iPhone</span>
+        <h3>Back glass repair</h3>
+        <p>Laser-precision back glass replacement — the repair most shops won't touch without swapping the whole housing.</p>
+        <p class="from">Ask for a same-day quote</p>
+      </div>
+      <div class="card">
+        <span class="tag">Phones</span>
+        <h3>Screens &amp; batteries</h3>
+        <p>Screen replacements, battery swaps, charge-port fixes. Quality parts, straight answers on what's worth repairing.</p>
+        <p class="from">Ask for a same-day quote</p>
+      </div>
+      <div class="card">
+        <span class="tag">Laptops</span>
+        <h3>Laptop repair</h3>
+        <p>Screens, keyboards, batteries, storage upgrades, tune-ups, and OS rescue for Windows and Mac laptops.</p>
+        <p class="from">Ask for a same-day quote</p>
       </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <!-- ===== ABOUT  (EDIT this paragraph) ===== -->
-  <section class="block">
-    <div class="wrap">
-      <p class="sec-eyebrow"><span class="num">01</span> About</p>
-      <p class="about-text">A decade of fixing the unglamorous things businesses depend on — the email that won't deliver, the network that keeps dropping, the manual work that should've been automated years ago.</p>
+<!-- ===== SERVICES  (EDIT as your service list evolves) ===== -->
+<section id="services">
+  <div class="wrap">
+    <p class="line-label">Line 02 · Business systems</p>
+    <h2>The IT layer, <em>without the agency.</em></h2>
+    <p class="section-intro">For small businesses that need real infrastructure and one accountable person running it.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">Deliverability</span>
+        <h3>Email that lands</h3>
+        <p>SPF, DKIM, DMARC, and migrations done right — so your business email reaches inboxes, not spam folders.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Infrastructure</span>
+        <h3>Servers &amp; DNS</h3>
+        <p>Linux administration, Docker deployments, DNS/MX setup, and the unglamorous plumbing businesses run on.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Support</span>
+        <h3>IT support &amp; field work</h3>
+        <p>On-site and remote support for setups, migrations, networks, and the problems that stall your day.</p>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== WHAT I DO  (EDIT these four cards) ===== -->
-  <section class="block" id="work">
-    <div class="wrap">
-      <p class="sec-eyebrow"><span class="num">02</span> What I do</p>
-      <div class="grid">
-        <div class="cell">
-          <span class="tag">DELIVERABILITY</span>
-          <h3>Email &amp; DNS</h3>
-          <p>SPF, DKIM, and DMARC done right, so your mail lands in the inbox instead of spam.</p>
+<!-- ===== PRODUCTS  (EDIT: flip Angelina's badge from "Coming soon" to "Live" at launch) ===== -->
+<section id="products">
+  <div class="wrap">
+    <p class="line-label">Line 03 · Products</p>
+    <h2>Built here. <em>Dial tone soon.</em></h2>
+    <div class="product">
+      <div class="info">
+        <span class="badge soon">Coming soon</span>
+        <h3>Angelina — AI receptionist</h3>
+        <p>An AI phone system that answers your business line 24/7 — books appointments, answers questions, and never puts a customer on hold. Built for small businesses that miss calls and lose work.</p>
+      </div>
+      <a class="btn btn-line" href="/angelina/">Get notified →</a>
+    </div>
+    <div class="product">
+      <div class="info">
+        <span class="badge">In the lab</span>
+        <h3>More on the bench</h3>
+        <p>Tools for lead generation, security monitoring, and small-business automation are in active development. This page will grow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT  (EDIT your story + the stat board) ===== -->
+<section id="about">
+  <div class="wrap">
+    <p class="line-label">Line 04 · The operator</p>
+    <div class="about-grid">
+      <div class="about-copy">
+        <h2>Who picks up <em>when you call.</em></h2>
+        <p>I'm Kimo — an independent IT consultant and repair tech in San Diego. I've spent years on the parts of tech nobody sees: email that quietly stops delivering, networks that drop at the worst moment, phones with shattered glass a week after purchase.</p>
+        <p><strong>The model is simple: you talk to the person doing the work.</strong> Diagnosis, quote, repair, follow-up — same human, start to finish.</p>
+      </div>
+      <dl class="statboard">
+        <div><dt>Base</dt><dd>San Diego, CA</dd></div>
+        <div><dt>Mode</dt><dd>Field · Bench · Remote</dd></div>
+        <div><dt>Turnaround</dt><dd>Same-day quotes</dd></div>
+        <div><dt>Status</dt><dd>Taking work</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT  (EDIT phone number when ready; email routes via Cloudflare) ===== -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <p class="line-label">Line 05 · Contact</p>
+    <div class="contact-grid">
+      <div>
+        <h2>Open a <em>direct line.</em></h2>
+        <p class="section-intro">Tell me what's broken or what you're trying to build. You'll get a straight answer and a real quote — not a sales funnel.</p>
+      </div>
+      <div>
+        <div class="channel">
+          <span class="lbl">Call or text</span>
+          <a href="tel:+18583898698">(858) 389-8698</a>
+          <span class="note">The direct line — no phone tree, no hold music.</span>
         </div>
-        <div class="cell">
-          <span class="tag">EFFICIENCY</span>
-          <h3>Automation</h3>
-          <p>Workflows and tooling that take the repetitive busywork off your plate for good.</p>
+        <div class="channel">
+          <span class="lbl">Email</span>
+          <a href="mailto:admin@kar-tel.app">admin@kar-tel.app</a>
+          <span class="note">Photos of the damage help with quotes.</span>
         </div>
-        <div class="cell">
-          <span class="tag">RELIABILITY</span>
-          <h3>IT &amp; systems</h3>
-          <p>Setup, migrations, and steady support that keeps lean teams up and running.</p>
+        <div class="channel">
+          <span class="lbl">Repairs &amp; quotes</span>
+          <a href="mailto:admin@kar-tel.app?subject=Repair%20quote">Request a quote →</a>
+          <span class="note">Device model + what happened = same-day estimate.</span>
         </div>
-        <div class="cell">
-          <span class="tag">SECURITY</span>
-          <h3>Hardening &amp; monitoring</h3>
-          <p>Practical defenses grounded in real-world threats, sized to your business.</p>
+        <div class="channel">
+          <span class="lbl">Angelina early access</span>
+          <a href="/angelina/">Join the list →</a>
+          <span class="note">Be first in line when the AI receptionist launches.</span>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== CONTACT  (EDIT your email below) ===== -->
-  <section class="block contact" id="contact">
-    <div class="wrap">
-      <p class="sec-eyebrow"><span class="num">03</span> Contact</p>
-      <h2>Let's talk.</h2>
-      <a class="mail" href="mailto:kareemhilaly@gmail.com">kareemhilaly@gmail.com</a>
-    </div>
-  </section>
-
-  <footer>
-    <div class="wrap">
-      <span>© 2026 KAREEM HILALY</span>
-      <span>KAR-TEL.APP</span>
-    </div>
-  </footer>
+<footer>
+  <div class="wrap">
+    <span>© 2026 KAR-TEL · SAN DIEGO, CA</span>
+    <span><a href="https://github.com/Egyptian-Magician">GITHUB</a> · <a href="/angelina/">ANGELINA</a></span>
+  </div>
+</footer>
 
 </body>
 </html>
