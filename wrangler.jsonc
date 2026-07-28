@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "kareem-s-telecommunications-website",
+  "name": "kareems-telecommunications-website",
   "compatibility_date": "2026-06-18",
   "assets": { "directory": "./public" },
   "observability": { "enabled": true }
