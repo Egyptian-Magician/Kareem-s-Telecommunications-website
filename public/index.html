@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO: EDIT title + description as services change ===== -->
-<title>Kar-Tel — Phone &amp; Laptop Repair + IT Systems | San Diego</title>
-<meta name="description" content="Independent tech in San Diego. iPhone back glass and screen repair, laptop repair, business IT, email deliverability, and Angelina — an AI receptionist for small businesses.">
+<title>Kar-Tel — Phone &amp; Laptop Repair + Web Design | San Diego</title>
+<meta name="description" content="Independent San Diego tech: cellphone back glass &amp; screen repair, laptop repair, business IT, and custom websites. One person you can actually reach.">
 <link rel="canonical" href="https://kar-tel.app/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kar-Tel — One tech. Direct line.">
-<meta property="og:description" content="Phone &amp; laptop repair, business IT, and AI phone systems. San Diego.">
+<meta property="og:description" content="Cellphone &amp; laptop repair, web design, and business IT. San Diego.">
 <meta property="og:url" content="https://kar-tel.app/">
 <meta property="og:site_name" content="Kar-Tel">
 <meta name="theme-color" content="#10151D">
@@ -29,8 +29,8 @@
   "founder": { "@type": "Person", "name": "Kareem \"Kimo\" Hilaly" },
   "areaServed": { "@type": "City", "name": "San Diego" },
   "address": { "@type": "PostalAddress", "addressLocality": "San Diego", "addressRegion": "CA", "addressCountry": "US" },
-  "description": "Independent phone and laptop repair, business IT support, email deliverability consulting, and AI phone systems in San Diego.",
-  "knowsAbout": ["iPhone repair", "back glass repair", "laptop repair", "email deliverability", "DNS", "IT support", "AI receptionist"]
+  "description": "Independent cellphone and laptop repair, web design, business IT support, and email deliverability consulting in San Diego.",
+  "knowsAbout": ["iPhone repair", "back glass repair", "cellphone screen repair", "laptop repair", "web design", "website development", "email deliverability", "DNS", "IT support", "AI receptionist"]
 }
 </script>
 
@@ -61,8 +61,13 @@
   ::selection{background:var(--copper);color:var(--night)}
   :focus-visible{outline:2px solid var(--copper);outline-offset:3px}
 
+  /* ===== terminal: scanline overlay (static, subtle) ===== */
+  .scanlines{position:fixed;inset:0;z-index:900;pointer-events:none;
+    background:repeating-linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0) 2px,rgba(0,0,0,.05) 3px);
+    opacity:.55}
+
   /* ===== carrier status bar ===== */
-  .statusbar{border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--dim);letter-spacing:.04em}
+  .statusbar{border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--dim);letter-spacing:.04em;position:relative;z-index:1}
   .statusbar .wrap{display:flex;align-items:center;gap:12px;height:44px;overflow-x:auto;white-space:nowrap}
   .sig{display:inline-flex;gap:2px;align-items:flex-end}
   .sig span{width:3px;background:var(--signal);border-radius:1px}
@@ -76,13 +81,19 @@
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
   .logo{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.02em}
   .logo .tld{color:var(--copper)}
-  .navlinks{display:flex;gap:26px;font-family:var(--mono);font-size:13px;color:var(--dim)}
+  .navlinks{display:flex;gap:24px;font-family:var(--mono);font-size:13px;color:var(--dim)}
   .navlinks a:hover{color:var(--copper-hot)}
-  @media(max-width:640px){.navlinks{gap:16px;font-size:12px}}
+  @media(max-width:640px){.navlinks{gap:14px;font-size:12px}}
 
   /* ===== hero ===== */
-  .hero{padding:92px 0 76px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+  .hero{padding:78px 0 76px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
   .hero::after{content:"";position:absolute;inset:auto -10% -1px -10%;height:1px;background:linear-gradient(90deg,transparent,var(--copper),transparent);opacity:.6}
+  .boot{font-family:var(--mono);font-size:13px;line-height:1.7;color:var(--dim);background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:30px;max-width:34em;white-space:pre-wrap;min-height:8.6em}
+  .boot .p{color:var(--copper)}
+  .boot .ok{color:var(--signal)}
+  .boot .warn{color:var(--copper-hot)}
+  .boot .cur{display:inline-block;width:8px;height:15px;background:var(--copper);vertical-align:-2px;animation:blink 1.1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
   .kicker{font-family:var(--mono);font-size:13px;color:var(--copper);letter-spacing:.14em;text-transform:uppercase;margin-bottom:22px}
   h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,6.4vw,64px);line-height:1.06;letter-spacing:-.01em;max-width:15em}
   h1 em{font-style:normal;color:var(--copper)}
@@ -105,6 +116,13 @@
   h2 em{font-style:normal;color:var(--copper)}
   .section-intro{color:var(--dim);max-width:40em;margin-bottom:44px}
 
+  /* ===== terminal: glitch heading (RGB split on hover) ===== */
+  .glitch{position:relative}
+  .glitch::before,.glitch::after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;opacity:0;pointer-events:none}
+  .glitch:hover::before{opacity:.7;color:#ff5b5b;transform:translate(-2px,-1px);animation:gl .45s steps(2) 1}
+  .glitch:hover::after{opacity:.7;color:var(--signal);transform:translate(2px,1px);animation:gl .45s steps(2) reverse 1}
+  @keyframes gl{0%{clip-path:inset(0 0 82% 0)}50%{clip-path:inset(40% 0 40% 0)}100%{clip-path:inset(78% 0 0 0)}}
+
   /* ===== repair cards ===== */
   .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px}
   .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:26px 24px;transition:border-color .15s ease,transform .15s ease}
@@ -113,6 +131,22 @@
   .card h3{font-family:var(--body);font-weight:600;font-size:19px;margin:12px 0 8px}
   .card p{color:var(--dim);font-size:15px}
   .card .from{margin-top:16px;font-family:var(--mono);font-size:13px;color:var(--copper)}
+
+  /* ===== cellphone repair: photo slots (swap placeholders for real photos) ===== */
+  .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:40px}
+  @media(max-width:700px){.shots{grid-template-columns:1fr 1fr}}
+  @media(max-width:460px){.shots{grid-template-columns:1fr}}
+  .shot{margin:0}
+  .shot-ph{aspect-ratio:4/3;border:1px dashed var(--line);border-radius:10px;
+    background:linear-gradient(135deg,rgba(217,142,74,.07),transparent),var(--panel);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;text-align:center;padding:16px;position:relative;overflow:hidden;font-family:var(--mono)}
+  .shot-ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 9px,rgba(255,255,255,.02) 9px,rgba(255,255,255,.02) 10px)}
+  .shot-ph>*{position:relative}
+  .shot-ph .id{font-size:11px;letter-spacing:.16em;color:var(--copper)}
+  .shot-ph .what{font-size:13px;color:var(--paper)}
+  .shot-ph .swap{font-size:11px;color:var(--dim);border:1px solid var(--line);border-radius:4px;padding:2px 8px;margin-top:4px}
+  .shot img{aspect-ratio:4/3;object-fit:cover;width:100%;border-radius:10px;border:1px solid var(--line)}
+  .shot figcaption{font-family:var(--mono);font-size:12px;color:var(--dim);margin-top:9px}
 
   /* ===== products ===== */
   .product{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:34px 30px;display:flex;flex-wrap:wrap;gap:26px;align-items:center;justify-content:space-between}
@@ -149,10 +183,12 @@
   footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
   footer a:hover{color:var(--copper-hot)}
 
-  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.boot .cur{display:none}}
 </style>
 </head>
 <body>
+
+<div class="scanlines" aria-hidden="true"></div>
 
 <!-- ===== STATUS BAR ===== -->
 <div class="statusbar">
@@ -170,7 +206,8 @@
     <a class="logo" href="#top">KAR-TEL<span class="tld">.APP</span></a>
     <div class="navlinks">
       <a href="#repairs">Repairs</a>
-      <a href="#services">Services</a>
+      <a href="/web-design/">Web Design</a>
+      <a href="#services">Systems</a>
       <a href="#products">Products</a>
       <a href="#contact">Contact</a>
     </div>
@@ -180,9 +217,16 @@
 <!-- ===== HERO  (EDIT headline + pitch here) ===== -->
 <header class="hero" id="top">
   <div class="wrap">
+    <!-- boot console: full text is in-page for no-JS/reduced-motion; script types it out -->
+    <div class="boot" id="boot" aria-label="System status">kar-tel@sandiego:~$ ./open_line --status
+&gt; cellphone_repair ... <span class="ok">ONLINE</span>
+&gt; laptop_repair ...... <span class="ok">ONLINE</span>
+&gt; web_design ......... <span class="ok">ONLINE</span>
+&gt; phone_forensics .... <span class="warn">BENCH-ONLY · consented</span>
+&gt; line .............. <span class="ok">OPEN — taking work</span></div>
     <p class="kicker">Independent tech · repairs + systems</p>
     <h1>One tech.<br><em>Direct line.</em></h1>
-    <p class="lede">Phone and laptop repair, business IT, and AI phone systems — handled by <strong>one person you can actually reach</strong>. No ticket queue, no call center, no handoffs. San Diego based.</p>
+    <p class="lede">Cellphone and laptop repair, custom websites, and business IT — handled by <strong>one person you can actually reach</strong>. No ticket queue, no call center, no handoffs. San Diego based.</p>
     <div class="cta-row">
       <a class="btn btn-solid" href="#contact">Get a repair quote</a>
       <a class="btn btn-line" href="tel:+18583898698">(858) 389-8698</a>
@@ -195,12 +239,41 @@
   </div>
 </header>
 
-<!-- ===== REPAIRS  (EDIT cards + starting prices) ===== -->
+<!-- ===== CELLPHONE REPAIR  (its own section — EDIT cards; SWAP photo slots below) ===== -->
 <section id="repairs">
   <div class="wrap">
-    <p class="line-label">Line 01 · Repairs</p>
-    <h2>Fix it once. <em>Fix it right.</em></h2>
-    <p class="section-intro">Walk-in problems, done properly — the repairs shops overcharge for or turn away.</p>
+    <p class="line-label">Line 01 · Cellphone repair</p>
+    <h2 class="glitch" data-text="Cracked, dead, or drowned.">Cracked, dead, <em>or drowned.</em></h2>
+    <p class="section-intro">The phone repairs other shops overcharge for or refuse — done on the bench, with real parts and straight answers on what's worth fixing.</p>
+
+    <!-- SWAP: replace each .shot-ph block with <img src="/img/your-photo.jpg" alt="..."> when your real photos are ready. Keep the 4:3 crop for a clean grid. -->
+    <div class="shots">
+      <figure class="shot">
+        <div class="shot-ph" role="img" aria-label="Placeholder for a cellphone back-glass repair photo">
+          <span class="id">IMG_01</span>
+          <span class="what">phone · back glass</span>
+          <span class="swap">drop photo here</span>
+        </div>
+        <figcaption>Back glass, laser-removed — not a whole-housing swap.</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="shot-ph" role="img" aria-label="Placeholder for a cellphone screen and parts photo">
+          <span class="id">IMG_02</span>
+          <span class="what">screen · parts</span>
+          <span class="swap">drop photo here</span>
+        </div>
+        <figcaption>Quality screens &amp; batteries — laid out before install.</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="shot-ph" role="img" aria-label="Placeholder for a photo of repair tools in use">
+          <span class="id">IMG_03</span>
+          <span class="what">tools · in use</span>
+          <span class="swap">drop photo here</span>
+        </div>
+        <figcaption>Real bench tools — microscope, hot plate, precision drivers.</figcaption>
+      </figure>
+    </div>
+
     <div class="cards">
       <div class="card">
         <span class="tag">iPhone</span>
@@ -209,17 +282,61 @@
         <p class="from">Ask for a same-day quote</p>
       </div>
       <div class="card">
-        <span class="tag">Phones</span>
-        <h3>Screens &amp; batteries</h3>
-        <p>Screen replacements, battery swaps, charge-port fixes. Quality parts, straight answers on what's worth repairing.</p>
+        <span class="tag">Screens &amp; batteries</span>
+        <h3>Screen &amp; battery swaps</h3>
+        <p>Cracked screens, dying batteries, unresponsive touch — replaced with quality parts and tested before you leave.</p>
         <p class="from">Ask for a same-day quote</p>
       </div>
+      <div class="card">
+        <span class="tag">Ports &amp; water</span>
+        <h3>Charge ports &amp; water damage</h3>
+        <p>Won't charge, won't power on, took a swim? Charge-port fixes and water-damage recovery — honest odds up front.</p>
+        <p class="from">Ask for a same-day quote</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OTHER REPAIRS  (laptops + devices — EDIT cards) ===== -->
+<section id="laptops">
+  <div class="wrap">
+    <p class="line-label">Line 02 · Laptops &amp; devices</p>
+    <h2 class="glitch" data-text="Not just phones.">Not <em>just phones.</em></h2>
+    <p class="section-intro">Same bench, same honesty — for the machines you actually work on.</p>
+    <div class="cards">
       <div class="card">
         <span class="tag">Laptops</span>
         <h3>Laptop repair</h3>
         <p>Screens, keyboards, batteries, storage upgrades, tune-ups, and OS rescue for Windows and Mac laptops.</p>
         <p class="from">Ask for a same-day quote</p>
       </div>
+      <div class="card">
+        <span class="tag">Data</span>
+        <h3>Backup &amp; data rescue</h3>
+        <p>Failing drive, lost files, migration to a new machine — recovered and moved without the anxiety.</p>
+        <p class="from">Ask for a same-day quote</p>
+      </div>
+      <div class="card">
+        <span class="tag">Diagnostics</span>
+        <h3>Won't-turn-on diagnosis</h3>
+        <p>Dead device, no idea why? A straight diagnosis and a real quote before any work starts.</p>
+        <p class="from">Ask for a same-day quote</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WEB DESIGN  (teaser — full details live on /web-design/) ===== -->
+<section id="webdesign">
+  <div class="wrap">
+    <p class="line-label">Line 03 · Web design</p>
+    <div class="product">
+      <div class="info">
+        <span class="badge">New</span>
+        <h3>Websites that actually get you called</h3>
+        <p>Fast, clean, mobile-first sites for small businesses — built by hand, hosted on Cloudflare, and tuned to show up on Google. Same direct line, no agency retainer.</p>
+      </div>
+      <a class="btn btn-line" href="/web-design/">See web design →</a>
     </div>
   </div>
 </section>
@@ -227,8 +344,8 @@
 <!-- ===== SERVICES  (EDIT as your service list evolves) ===== -->
 <section id="services">
   <div class="wrap">
-    <p class="line-label">Line 02 · Business systems</p>
-    <h2>The IT layer, <em>without the agency.</em></h2>
+    <p class="line-label">Line 04 · Business systems</p>
+    <h2 class="glitch" data-text="The IT layer, without the agency.">The IT layer, <em>without the agency.</em></h2>
     <p class="section-intro">For small businesses that need real infrastructure and one accountable person running it.</p>
     <div class="cards">
       <div class="card">
@@ -253,8 +370,8 @@
 <!-- ===== PRODUCTS  (EDIT: flip Angelina's badge from "Coming soon" to "Live" at launch) ===== -->
 <section id="products">
   <div class="wrap">
-    <p class="line-label">Line 03 · Products</p>
-    <h2>Built here. <em>Dial tone soon.</em></h2>
+    <p class="line-label">Line 05 · Products</p>
+    <h2 class="glitch" data-text="Built here. Dial tone soon.">Built here. <em>Dial tone soon.</em></h2>
     <div class="product">
       <div class="info">
         <span class="badge soon">Coming soon</span>
@@ -276,10 +393,10 @@
 <!-- ===== ABOUT  (EDIT your story + the stat board) ===== -->
 <section id="about">
   <div class="wrap">
-    <p class="line-label">Line 04 · The operator</p>
+    <p class="line-label">Line 06 · The operator</p>
     <div class="about-grid">
       <div class="about-copy">
-        <h2>Who picks up <em>when you call.</em></h2>
+        <h2 class="glitch" data-text="Who picks up when you call.">Who picks up <em>when you call.</em></h2>
         <p>I'm Kimo — an independent IT consultant and repair tech in San Diego. I've spent years on the parts of tech nobody sees: email that quietly stops delivering, networks that drop at the worst moment, phones with shattered glass a week after purchase.</p>
         <p><strong>The model is simple: you talk to the person doing the work.</strong> Diagnosis, quote, repair, follow-up — same human, start to finish.</p>
       </div>
@@ -296,10 +413,10 @@
 <!-- ===== CONTACT  (EDIT phone number when ready; email routes via Cloudflare) ===== -->
 <section id="contact" class="contact">
   <div class="wrap">
-    <p class="line-label">Line 05 · Contact</p>
+    <p class="line-label">Line 07 · Contact</p>
     <div class="contact-grid">
       <div>
-        <h2>Open a <em>direct line.</em></h2>
+        <h2 class="glitch" data-text="Open a direct line.">Open a <em>direct line.</em></h2>
         <p class="section-intro">Tell me what's broken or what you're trying to build. You'll get a straight answer and a real quote — not a sales funnel.</p>
       </div>
       <div>
@@ -319,9 +436,9 @@
           <span class="note">Device model + what happened = same-day estimate.</span>
         </div>
         <div class="channel">
-          <span class="lbl">Angelina early access</span>
-          <a href="/angelina/">Join the list →</a>
-          <span class="note">Be first in line when the AI receptionist launches.</span>
+          <span class="lbl">Web design</span>
+          <a href="/web-design/">Start a site →</a>
+          <span class="note">Small-business websites, built by hand.</span>
         </div>
       </div>
     </div>
@@ -331,9 +448,49 @@
 <footer>
   <div class="wrap">
     <span>© 2026 KAR-TEL · SAN DIEGO, CA</span>
-    <span><a href="https://github.com/Egyptian-Magician">GITHUB</a> · <a href="/angelina/">ANGELINA</a></span>
+    <span><a href="/web-design/">WEB DESIGN</a> · <a href="https://github.com/Egyptian-Magician">GITHUB</a> · <a href="/angelina/">ANGELINA</a></span>
   </div>
 </footer>
+
+<script>
+/* Boot-console typing effect. Full text already lives in #boot, so no-JS and
+   reduced-motion users see the finished panel; this only animates the reveal. */
+(function(){
+  var el = document.getElementById('boot');
+  if(!el) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduce) return;
+  var nodes = [];               // flatten to a list of {text, cls} chunks
+  var tmp = document.createElement('div');
+  tmp.innerHTML = el.innerHTML;
+  (function walk(parent, cls){
+    for(var i=0;i<parent.childNodes.length;i++){
+      var n = parent.childNodes[i];
+      if(n.nodeType===3){ nodes.push({text:n.nodeValue, cls:cls}); }
+      else if(n.nodeType===1){ walk(n, n.className||cls); }
+    }
+  })(tmp,'');
+  el.textContent='';
+  var cur = document.createElement('span'); cur.className='cur';
+  el.appendChild(cur);
+  var ni=0, off=0;
+  function type(){
+    if(ni>=nodes.length){ return; }
+    var chunk = nodes[ni];
+    var span = null;
+    if(chunk.cls){ span=document.createElement('span'); span.className=chunk.cls; el.insertBefore(span,cur); }
+    var textLen = chunk.text.length;
+    (function step(){
+      if(off>=textLen){ ni++; off=0; type(); return; }
+      var ch = chunk.text.charAt(off++);
+      if(span){ span.textContent += ch; }
+      else { el.insertBefore(document.createTextNode(ch), cur); }
+      setTimeout(step, ch==='\n'?90:(ch===' '?8:16));
+    })();
+  }
+  type();
+})();
+</script>
 
 </body>
 </html>

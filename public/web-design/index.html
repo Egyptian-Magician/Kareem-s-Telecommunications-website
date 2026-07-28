@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO ===== -->
+<title>Web Design for Small Business | Kar-Tel San Diego</title>
+<meta name="description" content="Hand-built, fast, mobile-first websites for San Diego small businesses. Cloudflare hosting, SEO-ready, no agency retainer. One tech, direct line.">
+<link rel="canonical" href="https://kar-tel.app/web-design/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Web Design — Kar-Tel San Diego">
+<meta property="og:description" content="Fast, hand-built websites for small businesses. Cloudflare-hosted, SEO-ready, San Diego.">
+<meta property="og:url" content="https://kar-tel.app/web-design/">
+<meta property="og:site_name" content="Kar-Tel">
+<meta name="theme-color" content="#10151D">
+
+<!-- ===== SEO: service structured data, tied to the LocalBusiness on the homepage ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Web design and development",
+  "name": "Small-business web design",
+  "url": "https://kar-tel.app/web-design/",
+  "areaServed": { "@type": "City", "name": "San Diego" },
+  "provider": {
+    "@type": "LocalBusiness",
+    "@id": "https://kar-tel.app/#business",
+    "name": "Kar-Tel",
+    "url": "https://kar-tel.app/",
+    "email": "admin@kar-tel.app",
+    "telephone": "+1-858-389-8698"
+  },
+  "description": "Hand-built, fast, mobile-first websites for small businesses in San Diego. Cloudflare hosting, SEO-ready, no agency retainer."
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --night:#10151D;--panel:#171E29;--line:#2A3442;--copper:#D98E4A;--copper-hot:#F2A960;
+    --signal:#7BC4A4;--paper:#EDE9E1;--dim:#8B95A3;
+    --display:'Unbounded',sans-serif;--body:'Archivo',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--night);color:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  ::selection{background:var(--copper);color:var(--night)}
+  :focus-visible{outline:2px solid var(--copper);outline-offset:3px}
+
+  .scanlines{position:fixed;inset:0;z-index:900;pointer-events:none;
+    background:repeating-linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0) 2px,rgba(0,0,0,.05) 3px);opacity:.55}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(16,21,29,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.02em}
+  .logo .tld{color:var(--copper)}
+  .navlinks{display:flex;gap:24px;font-family:var(--mono);font-size:13px;color:var(--dim)}
+  .navlinks a:hover{color:var(--copper-hot)}
+  @media(max-width:640px){.navlinks{gap:14px;font-size:12px}}
+
+  .hero{padding:72px 0 66px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:auto -10% -1px -10%;height:1px;background:linear-gradient(90deg,transparent,var(--copper),transparent);opacity:.6}
+  .crumb{font-family:var(--mono);font-size:12px;color:var(--dim);margin-bottom:22px}
+  .crumb a{color:var(--copper)}.crumb a:hover{color:var(--copper-hot)}
+  .kicker{font-family:var(--mono);font-size:13px;color:var(--copper);letter-spacing:.14em;text-transform:uppercase;margin-bottom:20px}
+  h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,6vw,58px);line-height:1.07;letter-spacing:-.01em;max-width:14em}
+  h1 em{font-style:normal;color:var(--copper)}
+  .lede{margin-top:24px;font-size:clamp(17px,2.2vw,20px);color:var(--dim);max-width:38em}
+  .lede strong{color:var(--paper);font-weight:500}
+  .cta-row{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{font-family:var(--mono);font-size:14px;padding:14px 24px;border-radius:6px;border:1px solid var(--copper);transition:all .15s ease}
+  .btn-solid{background:var(--copper);color:var(--night);font-weight:500}
+  .btn-solid:hover{background:var(--copper-hot);border-color:var(--copper-hot);transform:translateY(-2px)}
+  .btn-line{color:var(--copper)}
+  .btn-line:hover{background:rgba(217,142,74,.1);transform:translateY(-2px)}
+
+  section{padding:70px 0;border-bottom:1px solid var(--line)}
+  .line-label{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--copper);display:flex;align-items:center;gap:14px;margin-bottom:18px}
+  .line-label::after{content:"";height:1px;flex:1;background:var(--line)}
+  h2{font-family:var(--display);font-weight:700;font-size:clamp(24px,3.6vw,36px);line-height:1.15;margin-bottom:18px;max-width:18em}
+  h2 em{font-style:normal;color:var(--copper)}
+  .section-intro{color:var(--dim);max-width:40em;margin-bottom:40px}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:26px 24px;transition:border-color .15s ease,transform .15s ease}
+  .card:hover{border-color:var(--copper);transform:translateY(-3px)}
+  .card .tag{font-family:var(--mono);font-size:11px;color:var(--signal);letter-spacing:.1em;text-transform:uppercase}
+  .card h3{font-family:var(--body);font-weight:600;font-size:19px;margin:12px 0 8px}
+  .card p{color:var(--dim);font-size:15px}
+
+  .steps{list-style:none;counter-reset:step;display:grid;gap:14px;max-width:44em}
+  .steps li{counter-increment:step;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 22px;display:flex;gap:18px;align-items:flex-start}
+  .steps li::before{content:"0" counter(step);font-family:var(--mono);font-size:13px;color:var(--copper);border:1px solid var(--line);border-radius:6px;padding:4px 8px;flex:none}
+  .steps h3{font-family:var(--body);font-weight:600;font-size:17px;margin-bottom:4px}
+  .steps p{color:var(--dim);font-size:15px}
+
+  .cta-band{text-align:center;padding:64px 0}
+  .cta-band h2{margin:0 auto 12px;max-width:none}
+  .cta-band p{color:var(--dim);max-width:34em;margin:0 auto 28px}
+
+  footer{font-family:var(--mono);font-size:12px;color:var(--dim);padding:34px 0}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  footer a:hover{color:var(--copper-hot)}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="/">KAR-TEL<span class="tld">.APP</span></a>
+    <div class="navlinks">
+      <a href="/#repairs">Repairs</a>
+      <a href="/web-design/">Web Design</a>
+      <a href="/#services">Systems</a>
+      <a href="/#products">Products</a>
+      <a href="/#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="crumb"><a href="/">kar-tel.app</a> / web-design</p>
+    <p class="kicker">Web design · San Diego</p>
+    <h1>A website that <em>gets you called.</em></h1>
+    <p class="lede">Most small-business sites are slow, generic templates that never show up on Google. I build the opposite: <strong>fast, hand-coded sites</strong> that load instantly, read great on a phone, and are wired to be found — by the same person who'll answer when you call.</p>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="mailto:admin@kar-tel.app?subject=Website%20project">Start a project</a>
+      <a class="btn btn-line" href="tel:+18583898698">(858) 389-8698</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <p class="line-label">What you get</p>
+    <h2>Built by hand, <em>not by template.</em></h2>
+    <p class="section-intro">No page-builder bloat, no monthly platform fees, no agency retainer. Just a clean site you own.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">Speed</span>
+        <h3>Loads instantly</h3>
+        <p>Static, hand-coded pages on Cloudflare's global network — no heavy frameworks, no spinners. Fast sites rank better and convert better.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Mobile</span>
+        <h3>Mobile-first</h3>
+        <p>Most of your customers are on a phone. Every site is designed for that screen first, then scaled up — never the other way around.</p>
+      </div>
+      <div class="card">
+        <span class="tag">SEO</span>
+        <h3>Found on Google</h3>
+        <p>Proper titles, meta, structured data, and a sitemap on day one — plus ongoing tuning as your search data comes in.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Hosting</span>
+        <h3>Cloudflare-hosted</h3>
+        <p>Fast, secure, and cheap to run. I set up the domain, DNS, email routing, and SSL — the plumbing's handled.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Content</span>
+        <h3>Easy updates</h3>
+        <p>Need a price changed or a page added? One message to me — no logging into a clunky dashboard, no per-change fee.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Ownership</span>
+        <h3>You own it</h3>
+        <p>Your domain, your code, your content. No lock-in to a platform that holds your site hostage if you leave.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="line-label">How it works</p>
+    <h2>From call to <em>live site.</em></h2>
+    <ol class="steps">
+      <li><div><h3>Talk it through</h3><p>Call or email. We figure out what the site needs to do and what it should say — no jargon, no upsell.</p></div></li>
+      <li><div><h3>Quote &amp; scope</h3><p>A flat, honest quote for the build. You know the number before any work starts.</p></div></li>
+      <li><div><h3>Build &amp; review</h3><p>I build it, you review a live preview, we refine until it's right.</p></div></li>
+      <li><div><h3>Launch &amp; maintain</h3><p>We point your domain, go live, and I'm still the person you call for changes down the road.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Ready when you are.</h2>
+    <p>Tell me about your business and what you want the site to do. You'll get a straight answer and a real quote.</p>
+    <div class="cta-row" style="justify-content:center">
+      <a class="btn btn-solid" href="mailto:admin@kar-tel.app?subject=Website%20project">Email admin@kar-tel.app</a>
+      <a class="btn btn-line" href="tel:+18583898698">Call (858) 389-8698</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 KAR-TEL · SAN DIEGO, CA</span>
+    <span><a href="/">HOME</a> · <a href="https://github.com/Egyptian-Magician">GITHUB</a> · <a href="/angelina/">ANGELINA</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
