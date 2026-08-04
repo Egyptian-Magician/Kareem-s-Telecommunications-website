@@ -187,6 +187,31 @@
   footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
   footer a:hover{color:var(--copper-hot)}
 
+  /* ===== web-design showcase ===== */
+  .showcase{display:grid;grid-template-columns:1fr .9fr;gap:44px;align-items:center}
+  @media(max-width:820px){.showcase{grid-template-columns:1fr;gap:32px}}
+  .showcase .feat{list-style:none;display:grid;gap:12px;margin:22px 0 30px}
+  .showcase .feat li{color:var(--dim);font-size:15px;padding-left:22px;position:relative}
+  .showcase .feat li::before{content:"✓";position:absolute;left:0;color:var(--signal)}
+
+  /* ===== code laptop (animated) ===== */
+  .laptop{width:100%;max-width:420px;margin:0 auto;filter:drop-shadow(0 20px 40px rgba(0,0,0,.45))}
+  .laptop .screen{position:relative;background:#080d15;border:1px solid var(--line);border-radius:12px 12px 4px 4px;aspect-ratio:16/10;overflow:hidden;box-shadow:0 0 42px rgba(217,142,74,.05),inset 0 0 55px rgba(0,0,0,.55)}
+  .laptop .glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 85% at 50% 0%,rgba(217,142,74,.06),transparent 62%);z-index:3}
+  .laptop .chrome{position:absolute;top:0;left:0;right:0;height:26px;background:#0d1420;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:6px;padding:0 12px;z-index:2;font-family:var(--mono);font-size:10px;color:var(--dim)}
+  .laptop .chrome i{width:8px;height:8px;border-radius:50%;background:var(--line)}
+  .laptop .chrome i.r{background:#e0674f}.laptop .chrome i.y{background:#d9a94a}.laptop .chrome i.g{background:var(--signal)}
+  .laptop .chrome span{margin-left:8px}
+  .laptop .view{position:absolute;top:26px;left:0;right:0;bottom:0;overflow:hidden}
+  .laptop .code{position:absolute;top:0;left:0;padding:12px 14px;margin:0;font-family:var(--mono);font-size:11px;line-height:1.75;white-space:pre;color:var(--paper);animation:codescroll 26s linear infinite;will-change:transform}
+  .laptop .code .k{color:var(--copper)}
+  .laptop .code .s{color:var(--signal)}
+  .laptop .code .c{color:var(--dim)}
+  .laptop .code .fn{color:var(--copper-hot)}
+  @keyframes codescroll{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+  .laptop .base{height:14px;background:linear-gradient(#161d29,#0d1420);border:1px solid var(--line);border-top:0;border-radius:0 0 16px 16px;position:relative}
+  .laptop .base::after{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:66px;height:5px;background:#0a0f18;border-radius:0 0 7px 7px}
+
   @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.boot .cur{display:none}}
 </style>
 </head>
@@ -330,17 +355,63 @@
   </div>
 </section>
 
-<!-- ===== WEB DESIGN  (teaser — full details live on /web-design/) ===== -->
+<!-- ===== WEB DESIGN  (homepage showcase — full details live on /web-design/) ===== -->
 <section id="webdesign">
   <div class="wrap">
     <p class="line-label">Line 03 · Web design</p>
-    <div class="product">
-      <div class="info">
-        <span class="badge">New</span>
-        <h3>Websites that actually get you called</h3>
-        <p>Fast, clean, mobile-first sites for small businesses — built by hand, hosted on Cloudflare, and tuned to show up on Google. Same direct line, no agency retainer.</p>
+    <div class="showcase">
+      <div>
+        <h2 class="glitch" data-text="Websites that get you called.">Websites that <em>get you called.</em></h2>
+        <p class="section-intro" style="margin-bottom:0">Fast, hand-coded sites for small businesses — built to load instantly, read great on a phone, and actually show up on Google. No templates, no agency retainer.</p>
+        <ul class="feat">
+          <li>Mobile-first &amp; lightning fast</li>
+          <li>Built to rank — SEO wired in from day one</li>
+          <li>Cloudflare-hosted, and you own everything</li>
+          <li>One message to update — no clunky dashboards</li>
+        </ul>
+        <a class="btn btn-solid" href="/web-design/">See web design →</a>
       </div>
-      <a class="btn btn-line" href="/web-design/">See web design →</a>
+      <div class="hero-visual">
+        <div class="laptop" aria-hidden="true">
+          <div class="screen">
+            <span class="glow"></span>
+            <div class="chrome"><i class="r"></i><i class="y"></i><i class="g"></i><span>build.js — kar-tel</span></div>
+            <div class="view"><div class="code"><span class="c">// build + ship a client site</span>
+<span class="k">import</span> { build, deploy } <span class="k">from</span> <span class="s">'kar-tel'</span>
+
+<span class="k">const</span> site = <span class="fn">build</span>({
+  business: <span class="s">'Local Shop'</span>,
+  fast: <span class="k">true</span>,
+  mobile: <span class="k">true</span>,
+  seo: <span class="k">true</span>,
+})
+
+<span class="fn">optimize</span>(site)    <span class="c">// 100 / 100</span>
+<span class="k">await</span> <span class="fn">deploy</span>(site)   <span class="c">// → live</span>
+<span class="fn">submit</span>(<span class="s">'google'</span>)   <span class="c">// get found</span>
+
+<span class="c">// the phone starts ringing ↑</span>
+
+<span class="c">// build + ship a client site</span>
+<span class="k">import</span> { build, deploy } <span class="k">from</span> <span class="s">'kar-tel'</span>
+
+<span class="k">const</span> site = <span class="fn">build</span>({
+  business: <span class="s">'Local Shop'</span>,
+  fast: <span class="k">true</span>,
+  mobile: <span class="k">true</span>,
+  seo: <span class="k">true</span>,
+})
+
+<span class="fn">optimize</span>(site)    <span class="c">// 100 / 100</span>
+<span class="k">await</span> <span class="fn">deploy</span>(site)   <span class="c">// → live</span>
+<span class="fn">submit</span>(<span class="s">'google'</span>)   <span class="c">// get found</span>
+
+<span class="c">// the phone starts ringing ↑</span>
+</div></div>
+          </div>
+          <div class="base"></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
