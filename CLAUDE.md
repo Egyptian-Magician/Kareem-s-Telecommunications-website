@@ -1,7 +1,7 @@
 # CLAUDE.md — Kar-Tel website (kar-tel.app)
 
 ## What this is
-The business website for **Kimo (Kareem Hilaly)** — independent repair tech and
+The business website for **Kareem Hilaly** — independent repair tech and
 IT consultant in San Diego. Static site, no framework, no build step.
 **Claude Code IS the CMS**: content updates happen by editing these files and
 pushing; Cloudflare auto-deploys from the main branch.
@@ -58,7 +58,7 @@ Manual fallback (needs one-time `npx wrangler login` by the user): `npx wrangler
   shifts in Search Console data ARE the signal.
 
 ## Email + phone
-- Business phone **(858) 389-8698** appears in the hero, the contact section,
+- Business phone **(858) 399-8883** appears in the hero, the contact section,
   and the JSON-LD `telephone` field. Keep all three in sync if it changes.
 - `admin@kar-tel.app` works via **Cloudflare Email Routing** (free): Cloudflare
   dashboard → the kar-tel.app zone → Email → Email Routing → create address
