@@ -34,7 +34,7 @@
   "areaServed": { "@type": "City", "name": "San Diego" },
   "address": { "@type": "PostalAddress", "addressLocality": "San Diego", "addressRegion": "CA", "addressCountry": "US" },
   "description": "Independent cellphone and laptop repair, web design, business IT support, and email deliverability consulting in San Diego.",
-  "knowsAbout": ["iPhone repair", "back glass repair", "cellphone screen repair", "laptop repair", "web design", "website development", "email deliverability", "DNS", "IT support", "AI receptionist"]
+  "knowsAbout": ["iPhone repair", "back glass repair", "cellphone screen repair", "iPad screen repair","laptop repair", "web design", "website development", "email deliverability", "DNS", "IT support", "AI receptionist"]
 }
 </script>
 
@@ -87,7 +87,12 @@
   .logo .tld{color:var(--copper)}
   .navlinks{display:flex;gap:24px;font-family:var(--mono);font-size:13px;color:var(--dim)}
   .navlinks a:hover{color:var(--copper-hot)}
-  @media(max-width:640px){.navlinks{gap:14px;font-size:12px}}
+  @media(max-width:640px){
+    nav .wrap{gap:16px}
+    .logo{white-space:nowrap}
+    .navlinks{gap:14px;font-size:12px;min-width:0;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+    .navlinks::-webkit-scrollbar{display:none}
+  }
 
   /* ===== hero ===== */
   .hero{padding:78px 0 76px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
@@ -149,8 +154,26 @@
   .shot-ph .id{font-size:11px;letter-spacing:.16em;color:var(--copper)}
   .shot-ph .what{font-size:13px;color:var(--paper)}
   .shot-ph .swap{font-size:11px;color:var(--dim);border:1px solid var(--line);border-radius:4px;padding:2px 8px;margin-top:4px}
-  .shot img{aspect-ratio:4/3;object-fit:cover;width:100%;border-radius:10px;border:1px solid var(--line)}
+  .shot img{aspect-ratio:4/3;object-fit:cover;width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
   .shot figcaption{font-family:var(--mono);font-size:12px;color:var(--dim);margin-top:9px}
+
+  /* ===== recent work: repair reel + before/after job logs ===== */
+  .work-grid{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:36px;align-items:start}
+  @media(max-width:820px){.work-grid{grid-template-columns:1fr}}
+  .reel{margin:0;max-width:340px;width:100%}
+  .reel video{width:100%;height:auto;aspect-ratio:9/16;border-radius:12px;border:1px solid var(--line);background:var(--panel);display:block}
+  .reel figcaption{font-family:var(--mono);font-size:12px;color:var(--dim);margin-top:9px}
+  .jobs{display:grid;gap:18px}
+  .job{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px 20px}
+  .job .tag{font-family:var(--mono);font-size:11px;color:var(--signal);letter-spacing:.1em;text-transform:uppercase}
+  .job h3{font-family:var(--body);font-weight:600;font-size:19px;margin:8px 0 16px}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  @media(max-width:520px){.steps{grid-template-columns:1fr 1fr}}
+  .steps figure{margin:0}
+  .steps img{aspect-ratio:3/4;object-fit:cover;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);transition:border-color .15s ease}
+  .steps a:hover img{border-color:var(--copper)}
+  .steps figcaption{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:7px;line-height:1.45}
+  .steps figcaption b{display:block;font-weight:500;color:var(--copper);letter-spacing:.1em}
 
   /* ===== products ===== */
   .product{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:34px 30px;display:flex;flex-wrap:wrap;gap:26px;align-items:center;justify-content:space-between}
@@ -237,6 +260,7 @@
       <a href="#repairs">Repairs</a>
       <a href="/web-design/">Web Design</a>
       <a href="#services">Systems</a>
+      <a href="#recent-work">Recent work</a>
       <a href="#products">Products</a>
       <a href="#contact">Contact</a>
     </div>
@@ -275,31 +299,19 @@
     <h2 class="glitch" data-text="Cracked, dead, or drowned.">Cracked, dead, <em>or drowned.</em></h2>
     <p class="section-intro">The phone repairs other shops overcharge for or refuse — done on the bench, with real parts and straight answers on what's worth fixing.</p>
 
-    <!-- SWAP: replace each .shot-ph block with <img src="/img/your-photo.jpg" alt="..."> when your real photos are ready. Keep the 4:3 crop for a clean grid. -->
+    <!-- SWAP: photos live in /img/work/ (WebP, ~900px). Keep the 4:3 crop for a clean grid; nudge framing with object-position. -->
     <div class="shots">
       <figure class="shot">
-        <div class="shot-ph" role="img" aria-label="Placeholder for a cellphone back-glass repair photo">
-          <span class="id">IMG_01</span>
-          <span class="what">phone · back glass</span>
-          <span class="swap">drop photo here</span>
-        </div>
+        <img src="/img/work/iphone14-before.webp" alt="iPhone 14 with shattered back glass on the repair bench" width="900" height="1200" loading="lazy">
         <figcaption>Back glass, laser-removed — not a whole-housing swap.</figcaption>
       </figure>
       <figure class="shot">
-        <div class="shot-ph" role="img" aria-label="Placeholder for a cellphone screen and parts photo">
-          <span class="id">IMG_02</span>
-          <span class="what">screen · parts</span>
-          <span class="swap">drop photo here</span>
-        </div>
-        <figcaption>Quality screens &amp; batteries — laid out before install.</figcaption>
+        <img src="/img/work/ipad10-new-digitizer.webp" alt="New iPad digitizer glass held up for inspection before install" width="900" height="1200" loading="lazy">
+        <figcaption>Quality parts — inspected before they go in.</figcaption>
       </figure>
       <figure class="shot">
-        <div class="shot-ph" role="img" aria-label="Placeholder for a photo of repair tools in use">
-          <span class="id">IMG_03</span>
-          <span class="what">tools · in use</span>
-          <span class="swap">drop photo here</span>
-        </div>
-        <figcaption>Real bench tools — microscope, hot plate, precision drivers.</figcaption>
+        <img src="/img/work/ipad10-precision-driver.webp" alt="Precision screwdriver working on an opened iPad" width="900" height="1200" loading="lazy" style="object-position:50% 15%">
+        <figcaption>Real bench tools — precision drivers, heat, patience.</figcaption>
       </figure>
     </div>
 
@@ -437,6 +449,45 @@
         <span class="tag">Support</span>
         <h3>IT support &amp; field work</h3>
         <p>On-site and remote support for setups, migrations, networks, and the problems that stall your day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RECENT WORK  (EDIT: add a new .job block per repair; photos in /img/work/, reel in /media/) ===== -->
+<section id="recent-work">
+  <div class="wrap">
+    <p class="line-label">Bench log · Recent work</p>
+    <h2 class="glitch" data-text="Off the bench this week.">Off the bench <em>this week.</em></h2>
+    <p class="section-intro">Real repairs, photographed as they happened. No stock photos.</p>
+    <div class="work-grid">
+      <figure class="reel">
+        <video controls muted playsinline preload="none" poster="/media/repair-reel-poster.webp" width="720" height="1280" aria-label="Repair reel: iPhone 14 back glass and iPad 10 screen replacement, step by step">
+          <source src="/media/repair-reel.mp4" type="video/mp4">
+        </video>
+        <figcaption>Repair reel · 28s · two jobs, start to finish.</figcaption>
+      </figure>
+      <div class="jobs">
+        <article class="job">
+          <span class="tag">iPhone 14</span>
+          <h3>Back glass replacement</h3>
+          <div class="steps">
+            <figure><a href="/img/work/iphone14-before.webp"><img src="/img/work/iphone14-before-sm.webp" alt="iPhone 14 with shattered back glass" width="480" height="640" loading="lazy"></a><figcaption><b>01 BEFORE</b>Shattered back glass</figcaption></figure>
+            <figure><a href="/img/work/iphone14-opened.webp"><img src="/img/work/iphone14-opened-sm.webp" alt="iPhone 14 opened on the bench, display and housing separated" width="480" height="640" loading="lazy"></a><figcaption><b>02 OPEN</b>Opened on the bench</figcaption></figure>
+            <figure><a href="/img/work/iphone14-internals.webp"><img src="/img/work/iphone14-internals-sm.webp" alt="iPhone 14 internals and A15 board exposed" width="480" height="640" loading="lazy"></a><figcaption><b>03 INSIDE</b>Internals protected</figcaption></figure>
+            <figure><a href="/img/work/iphone14-frame-prepped.webp"><img src="/img/work/iphone14-frame-prepped-sm.webp" alt="iPhone 14 frame with old back glass removed and cleaned" width="480" height="640" loading="lazy"></a><figcaption><b>04 PREPPED</b>Glass off, frame kept</figcaption></figure>
+          </div>
+        </article>
+        <article class="job">
+          <span class="tag">iPad 10 (2022) · 5G</span>
+          <h3>Screen replacement</h3>
+          <div class="steps">
+            <figure><a href="/img/work/ipad10-before.webp"><img src="/img/work/ipad10-before-sm.webp" alt="iPad 10th generation with a cracked screen" width="480" height="640" loading="lazy"></a><figcaption><b>01 BEFORE</b>Cracked edge to edge</figcaption></figure>
+            <figure><a href="/img/work/ipad10-internals.webp"><img src="/img/work/ipad10-internals-sm.webp" alt="Opened pink iPad 10 showing battery and logic board" width="480" height="640" loading="lazy"></a><figcaption><b>02 INSIDE</b>Battery &amp; board checked</figcaption></figure>
+            <figure><a href="/img/work/ipad10-new-digitizer.webp"><img src="/img/work/ipad10-new-digitizer-sm.webp" alt="New iPad digitizer glass held up before install" width="480" height="640" loading="lazy"></a><figcaption><b>03 NEW PART</b>Digitizer inspected</figcaption></figure>
+            <figure><a href="/img/work/ipad10-boot.webp"><img src="/img/work/ipad10-boot-sm.webp" alt="Repaired iPad 10 booting to the Apple logo" width="480" height="640" loading="lazy"></a><figcaption><b>04 DONE</b>Boots clean, touch tested</figcaption></figure>
+          </div>
+        </article>
       </div>
     </div>
   </div>
