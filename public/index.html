@@ -157,7 +157,7 @@
   .shot img{aspect-ratio:4/3;object-fit:cover;width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
   .shot figcaption{font-family:var(--mono);font-size:12px;color:var(--dim);margin-top:9px}
 
-  /* ===== recent work: repair reel + before/after job logs ===== */
+  /* ===== recent work: repair reel + one carousel per job ===== */
   .work-grid{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:36px;align-items:start}
   @media(max-width:820px){.work-grid{grid-template-columns:1fr}}
   .reel{margin:0;max-width:340px;width:100%}
@@ -166,14 +166,18 @@
   .jobs{display:grid;gap:18px}
   .job{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px 20px}
   .job .tag{font-family:var(--mono);font-size:11px;color:var(--signal);letter-spacing:.1em;text-transform:uppercase}
-  .job h3{font-family:var(--body);font-weight:600;font-size:19px;margin:8px 0 16px}
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-  @media(max-width:520px){.steps{grid-template-columns:1fr 1fr}}
-  .steps figure{margin:0}
+  .job h3{font-family:var(--body);font-weight:600;font-size:19px;margin:8px 0 4px}
+  .job-sum{color:var(--dim);font-size:15px;margin-bottom:16px}
+  .steps{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;padding-bottom:10px;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+  .steps figure{margin:0;flex:0 0 min(200px,62%);scroll-snap-align:start}
   .steps img{aspect-ratio:3/4;object-fit:cover;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);transition:border-color .15s ease}
   .steps a:hover img{border-color:var(--copper)}
   .steps figcaption{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:7px;line-height:1.45}
   .steps figcaption b{display:block;font-weight:500;color:var(--copper);letter-spacing:.1em}
+  .car-nav{display:flex;gap:10px;margin-top:8px}
+  .car-nav button{font-family:var(--mono);font-size:14px;width:40px;height:34px;border-radius:6px;border:1px solid var(--copper);background:transparent;color:var(--copper);cursor:pointer;transition:all .15s ease}
+  .car-nav button:hover:not(:disabled){background:rgba(217,142,74,.1);color:var(--copper-hot);border-color:var(--copper-hot)}
+  .car-nav button:disabled{border-color:var(--line);color:var(--line);cursor:default}
 
   /* ===== products ===== */
   .product{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:34px 30px;display:flex;flex-wrap:wrap;gap:26px;align-items:center;justify-content:space-between}
@@ -454,7 +458,7 @@
   </div>
 </section>
 
-<!-- ===== RECENT WORK  (EDIT: add a new .job block per repair; photos in /img/work/, reel in /media/) ===== -->
+<!-- ===== RECENT WORK  (EDIT: add a new .job block per repair, one carousel each; photos in /img/work/, reel in /media/) ===== -->
 <section id="recent-work">
   <div class="wrap">
     <p class="line-label">Bench log · Recent work</p>
@@ -471,22 +475,36 @@
         <article class="job">
           <span class="tag">iPhone 14</span>
           <h3>Back glass replacement</h3>
-          <div class="steps">
+          <p class="job-sum">Shattered back glass taken off and replaced — frame kept, no whole-housing swap.</p>
+          <div class="carousel" role="region" aria-roledescription="carousel" aria-label="iPhone 14 back glass replacement photos">
+          <div class="steps" tabindex="0">
             <figure><a href="/img/work/iphone14-before.webp"><img src="/img/work/iphone14-before-sm.webp" alt="iPhone 14 with shattered back glass" width="480" height="640" loading="lazy"></a><figcaption><b>01 BEFORE</b>Shattered back glass</figcaption></figure>
             <figure><a href="/img/work/iphone14-opened.webp"><img src="/img/work/iphone14-opened-sm.webp" alt="iPhone 14 opened on the bench, display and housing separated" width="480" height="640" loading="lazy"></a><figcaption><b>02 OPEN</b>Opened on the bench</figcaption></figure>
             <figure><a href="/img/work/iphone14-internals.webp"><img src="/img/work/iphone14-internals-sm.webp" alt="iPhone 14 internals and A15 board exposed" width="480" height="640" loading="lazy"></a><figcaption><b>03 INSIDE</b>Internals protected</figcaption></figure>
             <figure><a href="/img/work/iphone14-frame-prepped.webp"><img src="/img/work/iphone14-frame-prepped-sm.webp" alt="iPhone 14 frame with old back glass removed and cleaned" width="480" height="640" loading="lazy"></a><figcaption><b>04 PREPPED</b>Glass off, frame kept</figcaption></figure>
           </div>
+          <div class="car-nav">
+            <button type="button" class="prev" aria-label="Previous photo">←</button>
+            <button type="button" class="next" aria-label="Next photo">→</button>
+          </div>
+        </div>
         </article>
         <article class="job">
           <span class="tag">iPad 10 (2022) · 5G</span>
           <h3>Screen replacement</h3>
-          <div class="steps">
+          <p class="job-sum">Cracked edge to edge — new digitizer in, boots clean and touch tested.</p>
+          <div class="carousel" role="region" aria-roledescription="carousel" aria-label="iPad 10 screen replacement photos">
+          <div class="steps" tabindex="0">
             <figure><a href="/img/work/ipad10-before.webp"><img src="/img/work/ipad10-before-sm.webp" alt="iPad 10th generation with a cracked screen" width="480" height="640" loading="lazy"></a><figcaption><b>01 BEFORE</b>Cracked edge to edge</figcaption></figure>
             <figure><a href="/img/work/ipad10-internals.webp"><img src="/img/work/ipad10-internals-sm.webp" alt="Opened pink iPad 10 showing battery and logic board" width="480" height="640" loading="lazy"></a><figcaption><b>02 INSIDE</b>Battery &amp; board checked</figcaption></figure>
             <figure><a href="/img/work/ipad10-new-digitizer.webp"><img src="/img/work/ipad10-new-digitizer-sm.webp" alt="New iPad digitizer glass held up before install" width="480" height="640" loading="lazy"></a><figcaption><b>03 NEW PART</b>Digitizer inspected</figcaption></figure>
             <figure><a href="/img/work/ipad10-boot.webp"><img src="/img/work/ipad10-boot-sm.webp" alt="Repaired iPad 10 booting to the Apple logo" width="480" height="640" loading="lazy"></a><figcaption><b>04 DONE</b>Boots clean, touch tested</figcaption></figure>
           </div>
+          <div class="car-nav">
+            <button type="button" class="prev" aria-label="Previous photo">←</button>
+            <button type="button" class="next" aria-label="Next photo">→</button>
+          </div>
+        </div>
         </article>
       </div>
     </div>
@@ -615,6 +633,26 @@
     })();
   }
   type();
+})();
+
+/* Recent-work carousels. Swipe/scroll natively; arrows step one photo. */
+(function(){
+  var cars = document.querySelectorAll('#recent-work .carousel');
+  for(var i=0;i<cars.length;i++){ (function(car){
+    var track = car.querySelector('.steps');
+    var prev = car.querySelector('.prev'), next = car.querySelector('.next'), nav = car.querySelector('.car-nav');
+    function step(){ var f = track.querySelector('figure'); return f ? f.getBoundingClientRect().width + 10 : track.clientWidth; }
+    function sync(){
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+      nav.hidden = track.scrollWidth <= track.clientWidth + 2;
+    }
+    prev.addEventListener('click', function(){ track.scrollBy({left:-step()}); });
+    next.addEventListener('click', function(){ track.scrollBy({left:step()}); });
+    track.addEventListener('scroll', sync, {passive:true});
+    window.addEventListener('resize', sync);
+    sync();
+  })(cars[i]); }
 })();
 </script>
 
